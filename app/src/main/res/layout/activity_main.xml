@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
-        android:text="@string/h1"
+        android:text="マイページ管理アプリ"
         android:textColor="#444444"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"

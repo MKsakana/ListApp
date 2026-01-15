@@ -23,9 +23,10 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="マイページ管理アプリ"
+            android:text="🏷️マイページ管理アプリ"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"/>
 
     </LinearLayout>
 

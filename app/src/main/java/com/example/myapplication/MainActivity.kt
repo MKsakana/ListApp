@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -41,5 +42,49 @@ class MainActivity : AppCompatActivity() {
 
         // アダプターを介してデータをRecyclerViewにセットします
         recyclerView.adapter = CardAdapter(itemList)
+
+        // onCreate内に追加
+        val addButton = findViewById<View>(R.id.addButton)
+        val subButton1 = findViewById<View>(R.id.subButton1)
+        val subButton2 = findViewById<View>(R.id.subButton2)
+
+        var isMenuOpen = false // メニューが開いているかどうかのフラグ
+
+        addButton.setOnClickListener {
+            if (!isMenuOpen) {
+                // メニューを開くアニメーション
+                showButton(subButton1, 1f)
+                showButton(subButton2, 1f)
+                // メインボタンを45度回転させて「×」に見せる（お好みで）
+                addButton.animate().rotation(45f).setDuration(300).start()
+            } else {
+                // メニューを閉じるアニメーション
+                hideButton(subButton1)
+                hideButton(subButton2)
+                addButton.animate().rotation(0f).setDuration(300).start()
+            }
+            isMenuOpen = !isMenuOpen
+        }
+    }
+    // ボタンをふわっと出す関数
+    private fun showButton(view: View, alpha: Float) {
+        view.visibility = View.VISIBLE
+        view.alpha = 0f
+        view.translationY = 50f // 下から上に上がる動き
+        view.animate()
+            .alpha(alpha)
+            .translationY(0f)
+            .setDuration(300)
+            .start()
+    }
+
+    // ボタンを隠す関数
+    private fun hideButton(view: View) {
+        view.animate()
+            .alpha(0f)
+            .translationY(50f)
+            .setDuration(300)
+            .withEndAction { view.visibility = View.GONE }
+            .start()
     }
 }

@@ -10,9 +10,9 @@
     <!-- 追加: ヘッダー部分 -->
     <LinearLayout
         android:id="@+id/headerLayout"
-        android:layout_width="409dp"
-        android:layout_height="81dp"
-        android:background="#253030"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="#FDA5B7"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,6 @@
             android:text="🏷️マイページ管理アプリ"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,10 +36,64 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
-        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_card" />
+
+    <!-- サブボタン1 (上) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/subButton1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="A"
+        app:backgroundTint="#FFB6C1"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@id/subButton2"
+        app:layout_constraintEnd_toEndOf="@id/addButton"
+        app:layout_constraintStart_toStartOf="@id/addButton" />
+
+    <!-- サブボタン2 (下) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/subButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="B"
+        app:backgroundTint="#FFB6C1"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@id/addButton"
+        app:layout_constraintEnd_toEndOf="@id/addButton"
+        app:layout_constraintStart_toStartOf="@id/addButton" />
+
+    <!-- 正円のパステルピンクボタン -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="+"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:backgroundTint="#FFA6B8"
+        app:cornerRadius="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

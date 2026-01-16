@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * RecyclerViewにデータを表示するための橋渡し役（アダプター）クラス
  */
-class CardAdapter(private val items: List<CardItem>) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class CardAdapter(
+    private var items: List<CardItem>,
+    private val onItemClick: (CardItem) -> Unit
+) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
     /**
      * 1つのリスト項目のView（見た目）を保持するクラス
@@ -36,10 +39,23 @@ class CardAdapter(private val items: List<CardItem>) : RecyclerView.Adapter<Card
         val item = items[position]
         holder.title.text = item.title
         holder.description.text = item.description
+        holder.itemView.setOnClickListener{
+            onItemClick(item)
+        }
     }
 
     /**
      * リストの総件数を返します
      */
     override fun getItemCount() = items.size
+
+    /**
+     * データを更新するための関数
+     * データベースの中身が変わった時にこれを呼び出します
+     */
+    fun updateData(newItems: List<CardItem>) {
+        items = newItems
+        // 画面を再描画するように通知します
+        notifyDataSetChanged()
+    }
 }
